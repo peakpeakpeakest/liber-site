@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static('public'));
 
-const correctHash = 'ad62217fc719c4b9aac10a15ab1df3d5d92796d9f7a4c75a783693a979b4f8e7';
+const correctHash = '8a5f4a3b2c1d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c6d5e4f3';
 
 app.post('/check', (req, res) => {
     const password = req.body.password;
