@@ -3,9 +3,18 @@ const app = express();
 app.use(express.json());
 app.use(express.static('public'));
 
+const crypto = require('crypto');
+
+function sha256(text) {
+    return crypto.createHash('sha256').update(text).digest('hex');
+}
+
+const correctHash = '5d5b3a5f6c6d9a2f1e8b3c4d7e8f9a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8';
+
 app.post('/check', (req, res) => {
     const password = req.body.password;
-    if (password === 'OLEHU8D7BB9C5') {
+    const inputHash = sha256(password);
+    if (inputHash === correctHash) {
         res.json({ success: true });
     } else {
         res.json({ success: false });
