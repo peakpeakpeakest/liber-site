@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.hidden-part {
+    display: none;
+}
+.data-part {
+    display: none;
+}
+.part-a {
+    display: none;
+}
+.part-b {
+    display: none;
+}
