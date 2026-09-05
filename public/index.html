@@ -3,6 +3,7 @@
 <head>
     <title>LIBER</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
             background: #000;
@@ -65,12 +66,6 @@
             background: #0f0;
             color: #000;
         }
-        .x1 { display: none; }
-        .x2 { display: none; }
-        .x3 { display: none; }
-        .data-part { display: none; }
-        .part-a { display: none; }
-        .part-b { display: none; }
     </style>
 </head>
 <body>
@@ -89,43 +84,10 @@
         </div>
     </div>
 
-    <div class="x1" data-q="b"></div>
-    <div class="x2" data-r="e"></div>
-    <span class="data-part" style="display:none;">Y</span>
-    <div class="part-a" style="display:none;">i</div>
-    <div class="part-b" style="display:none;">P</div>
-    <div id="m1" style="display:none;">u</div>
-    <div id="m2" style="display:none;">A</div>
-    <div class="x3" data-s="U"></div>
-    <div class="x1" data-t="3"></div>
-    <span id="z3" style="display:none;">O</span>
-    <div id="m3" style="display:none;">w</div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+    <script src="config.js"></script>
+    <script src="extra.js"></script>
+    <script src="main.js"></script>
     <script>
-        function getPart1() {
-            var a = document.querySelector('.x1[data-q]').getAttribute('data-q');
-            var b = document.querySelector('.x2[data-r]').getAttribute('data-r');
-            var c = document.querySelector('.data-part').textContent;
-            var d = document.querySelector('.part-a').textContent;
-            var e = document.querySelector('.part-b').textContent;
-            var f = document.getElementById('m1').textContent;
-            var g = document.getElementById('m2').textContent;
-            var h = document.querySelector('.x3[data-s]').getAttribute('data-s');
-            var i = document.querySelector('.x1[data-t]').getAttribute('data-t');
-            var j = document.getElementById('z3').textContent;
-            var k = document.getElementById('m3').textContent;
-            return a + b + c + d + e + f + g + h + i + j + k;
-        }
-
-        function buildLink() {
-            var p1 = 'htt' + 'ps' + '://';
-            var p2 = 'y' + 'ou' + 't' + 'u';
-            var p3 = '.be' + '/';
-            var p4 = getPart1();
-            return p1 + p2 + p3 + p4;
-        }
-
         function checkPassword() {
             const pass = document.getElementById('password').value;
             const error = document.getElementById('error');
@@ -141,7 +103,7 @@
                 if (data.success) {
                     result.classList.remove('hidden');
                     error.style.display = 'none';
-                    document.getElementById('videoLink').href = buildLink();
+                    setVideoLink();
                 } else {
                     error.style.display = 'block';
                     document.getElementById('password').value = '';
